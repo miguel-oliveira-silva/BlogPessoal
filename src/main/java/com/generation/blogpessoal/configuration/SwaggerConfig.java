@@ -17,28 +17,28 @@ import io.swagger.v3.oas.models.security.SecurityScheme;
 
 @Configuration
 public class SwaggerConfig {
-	 
+
 	@Bean
-    OpenAPI springBlogPessoalOpenAPI() {
-        return new OpenAPI()
-            .info(new Info()
-                .title("Projeto Blog Pessoal")
-                .description("Projeto Blog Pessoal - Generation Brasil")
-                .version("v0.0.1")
-                .license(new License()
-                    .name("Generation Brasil")
-                    .url("https://brazil.generation.org/"))
-                .contact(new Contact()
-                    .name("Generation Brasil")
-                    .url("https://github.com/conteudoGeneration")
-                    .email("conteudogeneration@generation.org")))
-            .externalDocs(new ExternalDocumentation()
-                .description("Github")
-                .url("https://github.com/conteudoGeneration/"))
-            .components(new Components()
-                    .addSecuritySchemes("jwt_auth", createSecurityScheme()))
-                .addSecurityItem(new SecurityRequirement().addList("jwt_auth"));
-    }
+	OpenAPI springBlogPessoalOpenAPI() {
+		return new OpenAPI()
+				.info(new Info()
+						.title("Projeto Blog Pessoal")
+						.description("Projeto Blog Pessoal - Generation Brasil")
+						.version("v0.0.1")
+						.license(new License()
+								.name("Generation Brasil")
+								.url("https://brazil.generation.org/"))
+						.contact(new Contact()
+								.name("Miguel Oliveira da Silva")
+								.url("https://github.com/miguel-oliveira-silva")
+								.email("migsos011205@gmail.com")))
+				.externalDocs(new ExternalDocumentation()
+						.description("Github")
+						.url("https://github.com/miguel-oliveira-silva/"))
+				.components(new Components()
+						.addSecuritySchemes("jwt_auth", createSecurityScheme()))
+				.addSecurityItem(new SecurityRequirement().addList("jwt_auth"));
+	}
 
 	@Bean
 	OpenApiCustomizer customerGlobalHeaderOpenApiCustomiser() {
@@ -66,13 +66,13 @@ public class SwaggerConfig {
 		return new ApiResponse().description(message);
 
 	}
-	
+
 	private SecurityScheme createSecurityScheme() {
-	    return new SecurityScheme()
-	        .name("jwt_auth")
-	        .type(SecurityScheme.Type.HTTP)
-	        .scheme("bearer")
-	        .bearerFormat("JWT")
-	        .description("Insira apenas o token JWT (a palavra 'Bearer' será adicionada automaticamente)");
+		return new SecurityScheme()
+				.name("jwt_auth")
+				.type(SecurityScheme.Type.HTTP)
+				.scheme("bearer")
+				.bearerFormat("JWT")
+				.description("Insira apenas o token JWT (a palavra 'Bearer' será adicionada automaticamente)");
 	}
 }
