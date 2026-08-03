@@ -35,7 +35,7 @@ public class Usuario {
 	@Schema(example = "email@email.com.br")
 	@NotBlank(message = "O Atributo Usuário é Obrigatório!")
 	@Email(message = "O Atributo Usuário deve ser um email válido!")
-	@Column(length = 255)
+	@Column(length = 255, unique = true)
 	private String usuario;
 
 	@NotBlank(message = "O Atributo Senha é Obrigatório!")
@@ -98,5 +98,5 @@ public class Usuario {
 	public void setPostagem(List<Postagem> postagem) {
 		this.postagem = postagem;
 	}
-
+	
 }
